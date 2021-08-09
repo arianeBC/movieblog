@@ -4,7 +4,7 @@ import User from 'App/Models/User'
 export default class UserSeeder extends BaseSeeder {
   public static developmentOnly = true
 
-  public async run () {
+  public async run() {
     await User.createMany([
       {
         email: 'johndoe@gmail.com',
@@ -14,19 +14,18 @@ export default class UserSeeder extends BaseSeeder {
       {
         email: 'janedoe@gmail.com',
         name: 'Jane Doe',
-        password: 'secret'
+        password: 'secret',
       },
       {
         email: 'bradpitt@gmail.com',
         name: 'Brad Pitt',
-        password: 'topsecret'
+        password: 'topsecret',
       },
       {
         email: 'inspecteurgadget@gmail.com',
         name: 'Inspecteur Gadget',
-        password: 'supersecret'
+        password: 'supersecret',
       },
     ])
   }
-
 }

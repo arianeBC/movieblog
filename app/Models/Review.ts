@@ -1,28 +1,27 @@
 import { DateTime } from 'luxon'
-import User from "App/Models/User";
-import Movie from "App/Models/Movie";
+import User from 'App/Models/User'
+import Movie from 'App/Models/Movie'
 
-import { BaseModel, column, belongsTo, BelongsTo } from "@ioc:Adonis/Lucid/Orm";
+import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Review extends BaseModel {
-
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public rank: number;
+  public rank: number
 
   @column()
-  public title: string;
+  public title: string
 
   @column()
-  public comment: string;
+  public comment: string
 
   @column()
-  public userId: number;
+  public userId: number
 
   @column()
-  public movieId: number;
+  public movieId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -32,10 +31,9 @@ export default class Review extends BaseModel {
 
   // Relationship
   @belongsTo(() => User)
-  public user: BelongsTo<typeof User>;
+  public user: BelongsTo<typeof User>
 
   // Relationship
   @belongsTo(() => Movie)
-  public movies: BelongsTo<typeof Movie>;
-  
+  public movies: BelongsTo<typeof Movie>
 }

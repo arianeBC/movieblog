@@ -27,17 +27,15 @@ Route.get('/', async () => {
 Route.get('health', async ({ response }) => {
   const report = await HealthCheck.getReport()
 
-  return report.healthy
-    ? response.ok(report)
-    : response.badRequest(report)
+  return report.healthy ? response.ok(report) : response.badRequest(report)
 })
 Route.group(() => {
-  Route.post("register", "AuthController.register");
-  Route.post("login", "AuthController.login");
+  Route.post('register', 'AuthController.register')
+  Route.post('login', 'AuthController.login')
   Route.group(() => {
-    Route.resource("reviews", "ReviewsController").apiOnly();
-    Route.resource("movies", "MoviesController").apiOnly();
-    Route.get("users/movies", "UsersController.moviesByUser");
-    Route.get("users/reviews", "UsersController.reviewsByUser");
-  }).middleware("auth:api");
-}).prefix("api");
+    Route.resource('reviews', 'ReviewsController').apiOnly()
+    Route.resource('movies', 'MoviesController').apiOnly()
+    Route.get('users/movies', 'UsersController.moviesByUser')
+    Route.get('users/reviews', 'UsersController.reviewsByUser')
+  }).middleware('auth:api')
+}).prefix('api')
